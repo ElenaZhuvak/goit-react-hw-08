@@ -3,13 +3,16 @@ import { useId } from 'react'
 import * as Yup from 'yup'
 import css from './ContactForm.module.css'
 import { nanoid } from 'nanoid'
+import { useDispatch, useSelector } from 'react-redux'
+import { addContact, selectContacts } from '../../redux/contactsSlice'
 
-const ContactForm = ({onAdd}) => {
+const ContactForm = () => {
+  const dispatch = useDispatch()
   const initialValues = {
   username: '',
   number: ''
 }
-
+  const contacts = useSelector(selectContacts)
   const usernameId = useId()
   const telId = useId()
 
@@ -19,7 +22,10 @@ const ContactForm = ({onAdd}) => {
       name: values.username,
       number: values.number
     }
-    onAdd(newContact)
+    if (contacts.some(contact => contact.name.toLowerCase() === newContact.name.toLowerCase() || contact.number === newContact.number)) {
+      return alert(`${newContact.name} or ${newContact.number} is already in contacts`)
+    }
+    dispatch(addContact(newContact))
     actions.resetForm() 
   }
 
