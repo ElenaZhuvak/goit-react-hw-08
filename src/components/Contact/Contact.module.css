@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-width: 300px;
+    width: 300px;
     border: 1px solid black;
     border-radius: 4px;
     padding: 12px;
@@ -16,7 +16,7 @@
     margin-bottom: 8px;
 }
 .contactNumber {
-    color: #121212;
+    color: #5c5c5c;
 }
 .contactName,
 .contactNumber {
@@ -49,4 +49,5 @@ p {
 }
 .contactIcons {
     margin-right: 12px;
+    color: black
 }

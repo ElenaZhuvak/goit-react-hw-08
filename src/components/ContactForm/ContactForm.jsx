@@ -23,7 +23,7 @@ const ContactForm = () => {
       number: values.number
     }
     if (contacts.some(contact => contact.name.toLowerCase() === newContact.name.toLowerCase() || contact.number === newContact.number)) {
-      return alert(`${newContact.name} or ${newContact.number} is already in contacts`)
+      return alert(`${newContact.name} or ${newContact.number} is already in your contacts`)
     }
     dispatch(addContact(newContact))
     actions.resetForm() 
