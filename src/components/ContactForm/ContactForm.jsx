@@ -5,6 +5,7 @@ import css from './ContactForm.module.css'
 import { nanoid } from 'nanoid'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectContacts } from '../../redux/contactsSlice'
+import { addContact } from '../../redux/contacts0ps'
 
 
 const ContactForm = () => {
@@ -26,7 +27,7 @@ const ContactForm = () => {
     if (contacts.some(contact => contact.name.toLowerCase() === newContact.name.toLowerCase() || contact.number === newContact.number)) {
       return alert(`${newContact.name} or ${newContact.number} is already in your contacts`)
     }
-    // dispatch(addContact(newContact))
+    dispatch(addContact(newContact))
     actions.resetForm() 
   }
 

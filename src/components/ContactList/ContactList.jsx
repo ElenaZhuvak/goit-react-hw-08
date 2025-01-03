@@ -5,6 +5,7 @@ import { selectContacts } from "../../redux/contactsSlice"
 import { selectFilter } from "../../redux/filtersSlice"
 import { useEffect } from "react"
 import { fetchContacts } from "../../redux/contacts0ps.js"
+import { selectIsLoading } from "../../redux/contactsSlice.js"
 
 
 const ContactList = () => {
@@ -12,6 +13,8 @@ const ContactList = () => {
   const filter = useSelector(selectFilter)
 
   const dispatch = useDispatch()
+  const isLoading = useSelector(selectIsLoading)
+
   useEffect(() => {
     dispatch(fetchContacts())
   }, [dispatch])
@@ -21,13 +24,16 @@ const ContactList = () => {
   console.log(filteredContacts)
 
   return (
-    <ul className={css.listItem}>
-        {filteredContacts.map(contact => {
-            return <li key={contact.id}>
-                <Contact data={contact}/>
-            </li>
-        })}
-    </ul>
+    <div>
+      {isLoading && <h2>Loading...</h2>}
+      <ul className={css.listItem}>
+          {filteredContacts.map(contact => {
+              return <li key={contact.id}>
+                  <Contact data={contact}/>
+              </li>
+          })}
+      </ul>
+    </div>
   )
 }
 
