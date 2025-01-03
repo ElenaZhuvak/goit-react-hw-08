@@ -15,36 +15,28 @@ const contactsSlice = createSlice({
     initialState,
     isLoading: false,
     isError: false,
-    reducers: {
-        addContact: (state, {payload}) => {
-            state.items.push(payload)
-        },
-        deleteContact: (state, {payload}) => {
-            state.items = state.items.filter(item => item.id !== payload)
-        }
-    },
     extraReducers: (builder) => {
         builder
-        .addCase(fetchContacts.fulfilled, (state, action) => {
-            state.items = action.payload
+        .addCase(fetchContacts.fulfilled, (state, {payload}) => {
+            state.items = payload
         })
-        .addCase(addContact.fulfilled, (state, action) => {
-            state.items.push(action.payload)
+        .addCase(addContact.fulfilled, (state, {payload}) => {
+            state.items.push(payload)
         })
-        .addCase(deleteContact.fulfilled, (state, action) => {
-            state.items = state.items.filter(item => item.id !== action.payload.id)
+        .addCase(deleteContact.fulfilled, (state, {payload}) => {
+            state.items = state.items.filter(item => item.id !== payload.id)
         })
 
 
-        .addMatcher(isAnyOf(fetchContacts.pending, addContact.pending, deleteContact.pending), (state, action) => {
+        .addMatcher(isAnyOf(fetchContacts.pending, addContact.pending, deleteContact.pending), (state) => {
             state.isError = false
             state.isLoading = true
         })
-        .addMatcher(isAnyOf(fetchContacts.rejected, addContact.rejected, deleteContact.rejected), (state, action) => {
+        .addMatcher(isAnyOf(fetchContacts.rejected, addContact.rejected, deleteContact.rejected), (state) => {
             state.isError = false
             state.isLoading = false
         })
-        .addMatcher(isAnyOf(fetchContacts.fulfilled, addContact.fulfilled, deleteContact.fulfilled), (state, action) => {
+        .addMatcher(isAnyOf(fetchContacts.fulfilled, addContact.fulfilled, deleteContact.fulfilled), (state) => {
             state.isLoading = false
         })
     } 
