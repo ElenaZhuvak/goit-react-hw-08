@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
 import css from './Contact.module.css'
-import { deleteContact } from '../../redux/contactsSlice'
+import { deleteContact } from '../../redux/contacts0ps'
 import { FaUser } from "react-icons/fa";
 import { FaUserTimes } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa6";
