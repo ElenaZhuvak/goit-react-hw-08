@@ -6,8 +6,6 @@ const SearchBox = () => {
   const filter = useSelector(selectFilter)
   const dispatch = useDispatch()
 
-  console.log('SEARCH-BOX')
-
   return (
     <div>
       <p>Find contacts by name</p>

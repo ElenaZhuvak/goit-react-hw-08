@@ -23,8 +23,6 @@ const ContactList = () => {
   const filteredContacts = contacts.filter(contact => contact.name.toLowerCase()
   .includes(filter.toLowerCase())|| contact.number.includes(filter))
 
-  console.log('CONTACT-LIST')
-
   return (
     <div>
       {isLoading && <h2>Loading...</h2>}

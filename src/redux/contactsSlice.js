@@ -43,7 +43,6 @@ const contactsSlice = createSlice({
     } 
 })
 
-console.log('CONTACT-SLICE')
 export const contactsReducer = contactsSlice.reducer;
 export const selectFilteredContacts = createSelector([selectContacts, selectFilter], (contacts, filter) => {
     return contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase()))
