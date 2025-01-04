@@ -4,7 +4,7 @@ import ContactList from "./ContactList/ContactList"
 import SearchBox from "./SearchBox/SearchBox"
 import css from "./App.module.css"
 import { useDispatch } from 'react-redux'
-import { fetchContacts } from '../redux/operations'
+import { fetchContacts } from '../redux/contactsOps'
 import { useEffect } from 'react'
 
 const App = () => {

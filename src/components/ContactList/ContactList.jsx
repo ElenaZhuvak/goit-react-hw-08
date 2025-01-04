@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import Contact from "../Contact/Contact"
 import css from './ContactList.module.css'
-import { fetchContacts } from "../../redux/operations.js"
+import { fetchContacts } from "../../redux/contactsOps.js"
 import { selectFilteredContacts } from "../../redux/contactsSlice.js"
 import { selectFilter } from "../../redux/selectors.js"
 import { selectIsLoading } from "../../redux/selectors.js"
