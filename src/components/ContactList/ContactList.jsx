@@ -4,13 +4,10 @@ import Contact from "../Contact/Contact"
 import css from './ContactList.module.css'
 import { fetchContacts } from "../../redux/contactsOps.js"
 import { selectFilteredContacts } from "../../redux/contactsSlice.js"
-import { selectFilter } from "../../redux/selectors.js"
 import { selectIsLoading } from "../../redux/selectors.js"
 
 
 const ContactList = () => {
-  const contacts = useSelector(selectFilteredContacts)
-  const filter = useSelector(selectFilter)
 
   const dispatch = useDispatch()
   const isLoading = useSelector(selectIsLoading)
@@ -19,9 +16,7 @@ const ContactList = () => {
     dispatch(fetchContacts())
   }, [dispatch])
   
-
-  const filteredContacts = contacts.filter(contact => contact.name.toLowerCase()
-  .includes(filter.toLowerCase())|| contact.number.includes(filter))
+  const filteredContacts = useSelector(selectFilteredContacts)
 
   return (
     <div>

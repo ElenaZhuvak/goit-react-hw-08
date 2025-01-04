@@ -9,13 +9,13 @@ const initialState = {
                 {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
                 {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
             ],
+            isLoading: false,
+            isError: false,
     }
     
 const contactsSlice = createSlice({
     name: 'contacts',
     initialState,
-    isLoading: false,
-    isError: false,
     extraReducers: (builder) => {
         builder
         .addCase(fetchContacts.fulfilled, (state, {payload}) => {
@@ -45,5 +45,6 @@ const contactsSlice = createSlice({
 
 export const contactsReducer = contactsSlice.reducer;
 export const selectFilteredContacts = createSelector([selectContacts, selectFilter], (contacts, filter) => {
-    return contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase()))
+    return contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase())
+    || contact.number.includes(filter))
 })
