@@ -4,7 +4,7 @@ import * as Yup from 'yup'
 import css from './ContactForm.module.css'
 import { nanoid } from 'nanoid'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectContacts } from '../../redux/contactsSlice'
+import { selectContacts } from '../../redux/selectors'
 import { addContact } from '../../redux/contacts0ps'
 
 
@@ -33,7 +33,7 @@ const ContactForm = () => {
 
   const contactsSchema = Yup.object().shape({
     username: Yup.string().min(3, 'Too short').max(50, 'Too long').required('Required'),
-    number: Yup.string().matches(/^\d{3}-\d{2}-\d{2}$/, 'Invalid phone number format').required('Phone number is required')
+    number: Yup.string().matches(/^\d{3}-\d{3}-\d{4}$/, 'Invalid phone number format').required('Phone number is required')
   })
 
   return (
@@ -48,7 +48,7 @@ const ContactForm = () => {
           <ErrorMessage className={css.error} name= 'username' component='span' />
   
           <label className={css.label} htmlFor={telId}>Number</label>
-          <Field className={css.field} type='tel' name='number' placeholder='111-11-11'></Field>
+          <Field className={css.field} type='tel' name='number' placeholder='111-111-1111'></Field>
           <ErrorMessage className={css.error} name='number' component='span' />
           
           <button className={css.btn} type='submit'>Add contact</button>
