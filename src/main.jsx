@@ -8,11 +8,11 @@ import { BrowserRouter } from 'react-router-dom';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-      {/* <Provider store={store}> */}
+    {/* <Provider store={store}> */}
+      <BrowserRouter>
         <App />
         <Toaster position="top-center" reverseOrder={false} />
-      {/* </Provider> */}
-    </BrowserRouter>
+      </BrowserRouter>
+    {/* </Provider> */}
   </StrictMode>
 );
