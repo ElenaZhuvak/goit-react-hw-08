@@ -1,6 +1,7 @@
 import { Form, Formik, Field } from "formik";
+import { Link } from "react-router-dom";
 
-const Login = () => {
+const LoginPage = () => {
   const initialValues =  {
     email: '',
     password: ''
@@ -28,10 +29,11 @@ const Login = () => {
           </label>
 
           <button className='px-4 py-2 shadow-2xl rounded-md bg-teal-400 text-white cursor-pointer hover:bg-teal-500' type='submit'>Login</button>
+          <p>To register click <Link className='text-teal-500' to='/register'>here</Link></p>
         </Form>
       </Formik>
     </div>
   );
 };
 
-export default Login;
+export default LoginPage;

@@ -1,11 +1,11 @@
 import 'modern-normalize';
 import { Route, Routes } from 'react-router-dom';
-import Login from '../pages/LoginPage/LoginPage';
 import HomePage from '../pages/HomePage/HomePage';
 import NotFound from '../pages/NotFound/NotFound';
-import Register from '../pages/RegistrationPage/RegistrationPage';
 import ContactsPage from '../pages/ContactsPage/ContactsPage';
 import Layout from './Layout/Layout';
+import LoginPage from '../pages/LoginPage/LoginPage';
+import RegistrationPage from '../pages/RegistrationPage/RegistrationPage';
 
 const App = () => {
   return (
@@ -16,8 +16,8 @@ const App = () => {
           <Route path='/contacts' element={<ContactsPage />} />
         </Route>
 
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
+          <Route path='/login' element={<LoginPage />} />
+          <Route path='/register' element={<RegistrationPage />} />
           <Route path='*' element={<NotFound />} />
 
       </Routes>
