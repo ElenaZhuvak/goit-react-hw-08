@@ -7,7 +7,7 @@
 // import { selectIsLoading } from "../../redux/selectors.js"
 
 
-// const ContactList = () => {
+const ContactList = () => {
 
 //   const dispatch = useDispatch()
 //   const isLoading = useSelector(selectIsLoading)
@@ -18,18 +18,19 @@
   
 //   const filteredContacts = useSelector(selectFilteredContacts)
 
-//   return (
-//     <div>
-//       {isLoading && <h2>Loading...</h2>}
-//       <ul className={css.listItem}>
-//           {filteredContacts.map(contact => {
-//               return <li key={contact.id}>
-//                   <Contact data={contact}/>
-//               </li>
-//           })}
-//       </ul>
-//     </div>
-//   )
-// }
+  return (
+    <div>
+        <h2>My all contacts</h2>
+      {/* {isLoading && <h2>Loading...</h2>}
+      <ul className={css.listItem}>
+          {filteredContacts.map(contact => {
+              return <li key={contact.id}>
+                  <Contact data={contact}/>
+              </li>
+          })}
+      </ul> */}
+    </div>
+  )
+}
 
-// export default ContactList
+export default ContactList
