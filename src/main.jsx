@@ -1,4 +1,4 @@
-import './index.css';
+import '/src/index.css';
 import App from './components/App.jsx';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
