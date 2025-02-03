@@ -3,7 +3,7 @@ import axios from "axios"
 
 // axios.defaults.baseURL = 'https://connections-api.goit.global/'
 export const connectionsApi = axios.create({
-    baseURL: 'https://connections-api.goit.global/',
+    baseURL: 'https://connections-api.goit.global',
 })
 
 export const register = createAsyncThunk('auth/register', async (credentials, thunkAPI) => {
@@ -13,4 +13,4 @@ export const register = createAsyncThunk('auth/register', async (credentials, th
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message)
     }
-})
+})``
