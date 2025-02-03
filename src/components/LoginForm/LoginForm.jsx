@@ -1,19 +1,28 @@
 import { Field, Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { login } from '../../redux/auth/operations';
+import toast from 'react-hot-toast';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
+  
+  const navigate = useNavigate()
+  const handleSubmit = (values, options) => {
+    dispatch(login(values))
+    .unwrap()
+    .then(res => {
+      toast(`Welcome ${res.user.email}`);
+      navigate('/contacts');
+    })
+    options.resetForm();
+  };
+
   const initialValues = {
     email: '',
     password: '',
   };
 
-  const handleSubmit = (values, options) => {
-    dispatch(login(values));
-    options.resetForm();
-  };
   return (
     <div className="min-h-screen flex flex-col justify-center items-center">
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
@@ -44,7 +53,7 @@ const LoginForm = () => {
             Login
           </button>
           <p>
-            To register click
+            To register click {' '}
             <Link className="text-teal-500" to="/register">
               here
             </Link>
