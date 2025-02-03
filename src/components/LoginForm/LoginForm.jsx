@@ -13,7 +13,10 @@ const LoginForm = () => {
     .unwrap()
     .then(res => {
       toast(`Welcome ${res.user.email}`);
-      navigate('/contacts');
+      navigate('/contacts')
+    })
+    .catch(() => {
+      toast.error(`Please check your details or try to register`)
     })
     options.resetForm();
   };

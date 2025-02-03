@@ -14,7 +14,10 @@ const RegistrationForm = () => {
       .then(res => {
         toast(`Welcome ${res.user.name}`);
         navigate('/contacts');
-      });
+      })
+      .catch(() => {
+        toast.error(`Please check your details or try to login`)
+      })
     options.resetForm();
   };
 
