@@ -12,7 +12,7 @@ const RegistrationForm = () => {
     dispatch(register(values))
       .unwrap()
       .then(res => {
-        toast(`Welcome ${res.user.name}`);
+        toast.success(`Welcome ${res.user.name}`);
         navigate('/contacts');
       })
       .catch(() => {

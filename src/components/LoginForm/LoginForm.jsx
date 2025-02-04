@@ -12,7 +12,7 @@ const LoginForm = () => {
     dispatch(login(values))
     .unwrap()
     .then(res => {
-      toast(`Welcome ${res.user.email}`);
+      toast.success(`Welcome ${res.user.email}`);
       navigate('/contacts')
     })
     .catch(() => {
