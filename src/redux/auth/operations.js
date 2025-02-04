@@ -32,7 +32,8 @@ export const login = createAsyncThunk('auth/login', async (credentials, thunkAPI
 
 export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     try {
-      await connectionsApi.post('/users/logout');   
+      await connectionsApi.post('/users/logout');
+      connectionsApi.defaults.headers.common.Authorization = ''; 
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message)
     }
