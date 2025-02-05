@@ -10,10 +10,6 @@ const Header = () => {
   const user = useSelector(selectUser)
   const dispatch = useDispatch()
 
-  console.log('isLoggedIn', isLoggedIn)
-  console.log('user', user)
-
-
   return (
     <header className={css.header}>
 
