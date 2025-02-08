@@ -14,10 +14,10 @@ const App = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(refreshUser)
+    dispatch(refreshUser())
   }, [dispatch])
   
-  
+
   return (
     <div>
       <Routes>

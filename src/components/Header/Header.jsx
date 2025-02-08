@@ -4,7 +4,6 @@ import css from './Header.module.css'
 import { useDispatch, useSelector } from "react-redux"
 import { selectIsLoggedIn, selectUser } from "../../redux/auth/selectors"
 import { logout } from "../../redux/auth/operations"
-import ContactsPage from "../../pages/ContactsPage/ContactsPage"
 
 const Header = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn)

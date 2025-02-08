@@ -24,7 +24,7 @@ const initialState = {
                 .addCase(deleteContact.fulfilled, (state, {payload}) => {
                     state.items = state.items.filter(item => item.id !== payload.id)
                 })
-                .addCase(logout.fulfilled, () => {initialState})
+                .addCase(logout.fulfilled, () => initialState)
 
 
                 .addMatcher(isAnyOf(fetchContacts.pending, addContact.pending, deleteContact.pending, logout.pending), (state) => {

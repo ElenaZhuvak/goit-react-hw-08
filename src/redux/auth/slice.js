@@ -33,7 +33,7 @@ const slice = createSlice({
         state.isLoggedIn = false;
       })
 
-      .addCase(logout.fulfilled, () => {initialState})
+      .addCase(logout.fulfilled, () => initialState)
       .addCase(logout.rejected, state => {
         state.isLoggedIn = false;
       })
