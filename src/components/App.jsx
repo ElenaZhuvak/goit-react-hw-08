@@ -6,8 +6,18 @@ import ContactsPage from '../pages/ContactsPage/ContactsPage';
 import Layout from './Layout/Layout';
 import LoginPage from '../pages/LoginPage/LoginPage';
 import RegistrationPage from '../pages/RegistrationPage/RegistrationPage';
+import { useDispatch } from 'react-redux';
+import { refreshUser } from '../redux/auth/operations';
+import { useEffect } from 'react';
 
 const App = () => {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(refreshUser)
+  }, [dispatch])
+  
+  
   return (
     <div>
       <Routes>
