@@ -28,13 +28,5 @@ export const deleteContact = createAsyncThunk('contacts/deleteContact', async (i
     }
 })
 
-// export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
-//     try {
-//       await connectionsApi.post('/users/logout');
-//       connectionsApi.defaults.headers.common.Authorization = ''; 
-//     } catch (error) {
-//         return thunkAPI.rejectWithValue(error.message)
-//     }
-// })
 
 // fetchContacts, addContact, deleteContact
