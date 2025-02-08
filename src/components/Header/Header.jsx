@@ -4,6 +4,7 @@ import css from './Header.module.css'
 import { useDispatch, useSelector } from "react-redux"
 import { selectIsLoggedIn, selectUser } from "../../redux/auth/selectors"
 import { logout } from "../../redux/auth/operations"
+import ContactsPage from "../../pages/ContactsPage/ContactsPage"
 
 const Header = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn)
@@ -17,6 +18,10 @@ const Header = () => {
         <NavLink to='/' className={buildLinkClass}>Home</NavLink>
 
       {isLoggedIn && <div>{user.email}</div>}
+      {isLoggedIn && (<>
+        <NavLink to='/contacts' className={buildLinkClass}>Contacts</NavLink>
+        </>) }
+      
       {!isLoggedIn && (
         <>
          <NavLink to='/login' className={buildLinkClass}>Login</NavLink>

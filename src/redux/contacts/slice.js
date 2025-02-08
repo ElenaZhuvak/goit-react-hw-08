@@ -2,6 +2,7 @@ import { createSelector, createSlice, isAnyOf } from "@reduxjs/toolkit"
 
 import { selectContacts, selectFilter } from "./selectors"
 import { addContact, deleteContact, fetchContacts } from "./operations"
+import { logout } from "../auth/operations"
 
 const initialState = {
             items: [],
@@ -23,22 +24,23 @@ const initialState = {
                 .addCase(deleteContact.fulfilled, (state, {payload}) => {
                     state.items = state.items.filter(item => item.id !== payload.id)
                 })
-                .addMatcher(isAnyOf(fetchContacts.pending, addContact.pending, deleteContact.pending), (state) => {
+                .addCase(logout.fulfilled, () => {initialState})
+
+
+                .addMatcher(isAnyOf(fetchContacts.pending, addContact.pending, deleteContact.pending, logout.pending), (state) => {
                     state.isError = false
                     state.isLoading = true
                 })
-                .addMatcher(isAnyOf(fetchContacts.fulfilled, addContact.fulfilled, deleteContact.fulfilled), (state) => {
+                .addMatcher(isAnyOf(fetchContacts.fulfilled, addContact.fulfilled, deleteContact.fulfilled, logout.fulfilled), (state) => {
                     state.isLoading = false
                 })
-                .addMatcher(isAnyOf(fetchContacts.rejected, addContact.rejected, deleteContact.rejected), (state) => {
+                .addMatcher(isAnyOf(fetchContacts.rejected, addContact.rejected, deleteContact.rejected, logout.rejected), (state) => {
                     state.isError = true
                     state.isLoading = false
+                    state.isLoggedIn = false
                 })
         } 
     })
-
-// .addCase(logout.fulfilled, () => {initialState})
-
 
 
 export const contactsReducer = contactsSlice.reducer;

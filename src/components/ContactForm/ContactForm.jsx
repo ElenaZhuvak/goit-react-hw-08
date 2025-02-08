@@ -4,7 +4,6 @@ import * as Yup from 'yup';
 import css from './ContactForm.module.css';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { addContact } from '../../redux/contacts/operations';
 import { selectContacts } from '../../redux/contacts/selectors';
 
@@ -61,7 +60,7 @@ const ContactForm = () => {
           <label className={css.label} htmlFor={usernameId}>
             Name
           </label>
-          <Field className={css.field} type="text" name="username"></Field>
+          <Field className={css.field} type="text" name="username" placeholder='Name'></Field>
           <ErrorMessage
             className={css.error}
             name="username"
