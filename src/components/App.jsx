@@ -11,6 +11,7 @@ import { refreshUser } from '../redux/auth/operations';
 import { useEffect } from 'react';
 import { selectIsRefreshing } from '../redux/auth/selectors';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
+import RestrictedRoute from './RestrictedRoute/RestrictedRoute';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ const App = () => {
               </PrivateRoute>
             }
           />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/login" element={<RestrictedRoute component={<LoginPage />} redirectTo='/contacts' />} />
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="*" element={<NotFound />} />
         </Route>

@@ -18,9 +18,9 @@ const Header = () => {
         </NavLink>
 
         {isLoggedIn && <div>{user.email}</div>}
-        {/* {isLoggedIn && (<>
+        {isLoggedIn && (<>
         <NavLink to='/contacts' className={buildLinkClass}>Contacts</NavLink>
-        </>) } */}
+        </>) }
 
         {!isLoggedIn && (
           <>
