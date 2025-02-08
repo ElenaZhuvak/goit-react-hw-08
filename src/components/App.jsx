@@ -10,30 +10,34 @@ import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from '../redux/auth/operations';
 import { useEffect } from 'react';
 import { selectIsRefreshing } from '../redux/auth/selectors';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 const App = () => {
-  const dispatch = useDispatch()
-  const isRefreshing = useSelector(selectIsRefreshing)
+  const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
   useEffect(() => {
-    dispatch(refreshUser())
-  }, [dispatch])
-  
+    dispatch(refreshUser());
+  }, [dispatch]);
 
   return isRefreshing ? null : (
     <div>
       <Routes>
-        <Route path='/' element={<Layout />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path='/contacts' element={<ContactsPage />} />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute>
+                <ContactsPage />
+              </PrivateRoute>
+            }
+          />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegistrationPage />} />
+        <Route path="*" element={<NotFound />} />
         </Route>
 
-          <Route path='/login' element={<LoginPage />} />
-          <Route path='/register' element={<RegistrationPage />} />
-          <Route path='*' element={<NotFound />} />
-
-
       </Routes>
-
     </div>
   );
 };
