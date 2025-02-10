@@ -35,13 +35,13 @@ p {
     border-radius: 20px;
     border: solid 1px;
     padding: 8px;
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 .contactBtnDelete:hover,
 .contactBtnDelete:focus {
     background-color: orange;
     border: solid 1px black;
     color: white;
-    
 }
 
 .iconBtn {

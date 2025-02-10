@@ -1,0 +1,11 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.btnLogout {
+    transition: color 0.25s ease;
+}
+.btnLogout:hover {
+    color: orangered;
+}
