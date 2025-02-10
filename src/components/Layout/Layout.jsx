@@ -1,11 +1,11 @@
 import { Outlet } from 'react-router-dom';
-import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import AppBar from '../AppBar/AppBar';
 
 const Layout = () => {
   return (
     <div className='flex flex-col min-h-screen'>
-      <Header />
+      <AppBar />
       <div className='flex-1'>
         <Outlet />
       </div>

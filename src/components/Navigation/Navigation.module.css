@@ -1,5 +1,6 @@
-.authNav {
+.nav {
     display: flex;
+    align-items: center;
     gap: 48px;
     font-size: 24px;
 }
