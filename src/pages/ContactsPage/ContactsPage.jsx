@@ -1,8 +1,10 @@
 import { useSelector } from 'react-redux';
-import ContactForm from '../../components/ContactForm/ContactForm';
-import ContactList from '../../components/ContactList/ContactList';
-import SearchBox from '../../components/SearchBox/SearchBox';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
+import { lazy } from 'react';
+
+const ContactForm = lazy(() => import('../../components/ContactForm/ContactForm'))
+const ContactList = lazy(() => import('../../components/ContactList/ContactList'))
+const SearchBox = lazy(()=>import('../../components/SearchBox/SearchBox'))
 
 const ContactsPage = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
