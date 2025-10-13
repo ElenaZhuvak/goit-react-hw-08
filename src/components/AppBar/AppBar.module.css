@@ -1,8 +1,9 @@
 .header {
-    display: flex;
-    align-items: center;
-    padding: 12px 40px;
-    gap: 48px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: burlywood;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 40px;
+  background: rgba(29, 28, 70, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
 }

@@ -1,12 +1,15 @@
 .wrapper {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 24px;
+  color: white;
 }
 .btnLogout {
-    transition: color 0.25s ease;
+  transition: color 0.25s ease;
 }
 .btnLogout:hover {
-    color: orangered;
+  color: #06b6d4;
+  transform: scale(1.05);
 }
