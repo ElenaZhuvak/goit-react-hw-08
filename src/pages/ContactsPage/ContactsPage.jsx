@@ -13,8 +13,11 @@ const ContactsPage = () => {
     <div>
       {isLoggedIn && (
         <>
-          <ContactForm />
-          <SearchBox />
+          <div className="flex justify-center items-center gap-24 mb-20 mt-20">
+            <ContactForm />
+            <SearchBox />
+          </div>
+
           <ContactList />
         </>
       )}

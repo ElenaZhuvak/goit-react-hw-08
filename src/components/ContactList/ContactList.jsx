@@ -19,7 +19,7 @@ const ContactList = () => {
   const filteredContacts = useSelector(selectFilteredContacts)
 
   return (
-    <div>
+    <div className={css.wrapper}>
       {isLoading && <h2>Loading...</h2>}
       <ul className={css.listItem}>
           {filteredContacts.map(contact => {

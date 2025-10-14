@@ -1,3 +1,6 @@
+.wrapper {
+    padding: 0 24px;
+}
 .listItem {
     list-style: none;
     padding: 0px;

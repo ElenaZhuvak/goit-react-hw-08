@@ -6,6 +6,7 @@ import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../redux/contacts/operations';
 import { selectContacts } from '../../redux/contacts/selectors';
+import toast from 'react-hot-toast';
 
 
 const ContactForm = () => {
@@ -31,7 +32,7 @@ const ContactForm = () => {
           contact.number === newContact.number
       )
     ) {
-      return alert(
+      return toast.error(
         `${newContact.name} or ${newContact.number} is already in your contacts`
       );
     }
@@ -45,7 +46,7 @@ const ContactForm = () => {
       .max(50, 'Too long')
       .required('Required'),
     number: Yup.string()
-      .matches(/^\d{3}-\d{3}-\d{4}$/, 'Invalid phone number format')
+      .matches(/^\+\d{12}$/, 'Invalid phone number format')
       .required('Phone number is required'),
   });
 
@@ -74,7 +75,7 @@ const ContactForm = () => {
             className={css.field}
             type="tel"
             name="number"
-            placeholder="111-111-1111"
+            placeholder="+123456789012"
           ></Field>
           <ErrorMessage className={css.error} name="number" component="span" />
 

@@ -7,11 +7,12 @@ const SearchBox = () => {
   const dispatch = useDispatch()
 
   return (
-    <div>
-      <p>Find contacts by name</p>
+    <div className="flex flex-col gap-2">
+      <p className="text-xl">Find contacts by name</p>
       <input type="text" 
               value={filter} 
-              onChange={(event) => dispatch(changeFilter(event.target.value))} />
+              onChange={(event) => dispatch(changeFilter(event.target.value))}
+              className="rounded-md p-1.5 w-80 shadow-[0_0_10px_4px_lightskyblue]" />
     
     </div>
   )
