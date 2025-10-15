@@ -28,5 +28,11 @@ export const deleteContact = createAsyncThunk('contacts/deleteContact', async (i
     }
 })
 
-
-// fetchContacts, addContact, deleteContact
+export const editContact = createAsyncThunk('contacts/editContact', async ({id, name, number}, thunkAPI) => {
+    try {
+        const response = await connectionsApi.patch(`/contacts/${id}`, {name, number})
+        return response.data
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.message)
+    }
+})

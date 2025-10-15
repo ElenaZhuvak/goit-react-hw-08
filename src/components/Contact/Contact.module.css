@@ -27,21 +27,36 @@
 p {
     margin: 0;
 }
+.contactBtnContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+}
 .contactBtnDelete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(252, 156, 156);
+    border-radius: 20px;
+    border: solid 1px;
+    padding: 3px 8px;
+}
+.contactBtnEdit {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: rgb(254, 254, 132);
     border-radius: 20px;
     border: solid 1px;
-    padding: 8px;
-    transition: background-color 0.25s ease, color 0.25s ease;
+    padding: 3px 8px;
 }
 .contactBtnDelete:hover,
-.contactBtnDelete:focus {
+.contactBtnEdit:hover {
     background-color: orange;
     border: solid 1px black;
     color: white;
+    
 }
 
 .iconBtn {
