@@ -22,7 +22,7 @@ const NotFound = () => {
             />
           </svg>
         </div>
-        <div className='mb-2 text-xl font-medium text-gray-600'><Link to="/">Oops, something went wrong...</Link></div>
+        <div className='mb-2 text-xl font-medium text-gray-600'><Link to="/">Oops, something went wrong... This page has not been found</Link></div>
       </div>
     </div>
   );

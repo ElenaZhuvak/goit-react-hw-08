@@ -14,7 +14,7 @@ const HomePage = () => {
           Your Personal <span className="text-cyan-300">Contact Vault</span>
         </h1>
         <p className="text-lg md:text-xl text-gray-200 mb-10">
-          All your important connections, beautifully organized and always accessible.
+          All your important connections, beautifully organised and always accessible.
         </p>
 
         <Link className="mt-18 inline-block bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:scale-105 hover:shadow-xl transform transition" to="/register">
